@@ -5,10 +5,10 @@ module "vpc" {
   name = "guru-vpc"
 
   cidr = "10.0.0.0/24"
-  azs  = slice(data.aws_availability_zones.available.names, 0, 3)
+  azs  = ["ap-southeast-1a", "ap-southeast-1b", "ap-southeast-1c"]
 
-  private_subnets = ["10.0.1.0/26", "10.0.2.0/26", "10.0.3.0/26"]
-  public_subnets  = ["10.0.4.0/26", "10.0.5.0/26", "10.0.6.0/26"]
+  private_subnets = ["10.0.0.0/26", "10.0.0.64/26"]
+  public_subnets  = ["1.0.0.128/26", "10.0.0.192/26"]
 
   enable_nat_gateway   = true
   single_nat_gateway   = true
